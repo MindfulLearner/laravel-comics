@@ -2,7 +2,12 @@ services:
 
   laravel-docker:
     container_name: laravel-docker
-    build: .
+    build:
+      context: .
+      args:
+        UID: ${UID}
+        GID: ${GID}
+    user: "${UID}:${GID}"
     volumes:
       - ./:/var/www/html
     ports:
@@ -14,7 +19,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: josh_db
     ports:
-    - 3306:3306
+      - 3306:3306
 
   phpmyadmin:
     image: phpmyadmin:latest
@@ -22,3 +27,4 @@ services:
       - 9001:80
     environment:
       - PMA_ARBITRARY=1
+
