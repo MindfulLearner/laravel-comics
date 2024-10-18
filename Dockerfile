@@ -20,17 +20,17 @@ RUN apt-get update -y && apt-get install -y \
     libpng-dev
 
 # Crea un utente con lo stesso UID e GID del tuo sistema host
-ARG UID=1000
-ARG GID=1000
+ARG UID=1000  # Predefinito
+ARG GID=1000  # Predefinito
 
-RUN groupadd -g ${GID} mygroup && \
-    useradd -m -u ${UID} -g mygroup myuser
+RUN groupadd -g ${GID} learner && \
+    useradd -m -u ${UID} -g learner learner
 
 # Assicurati che la cartella /var/www/html/data esista
 RUN mkdir -p /var/www/html/data && \
     chown -R www-data:www-data /var/www/html/data && \
     chmod -R 755 /var/www/html/data && \
-    chown -R www-data:www-data /var/www/html && \
+    chown -R learner:learner /var/www/html && \
     chmod -R 755 /var/www/html && \
     echo '<Directory /var/www/html/>\n\
     Options Indexes FollowSymLinks\n\
@@ -50,5 +50,4 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd
 
 # Passa all'utente creato per eseguire le azioni successive
-USER myuser
-
+USER learner

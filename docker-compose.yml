@@ -1,13 +1,12 @@
 services:
-
   laravel-docker:
     container_name: laravel-docker
     build:
       context: .
       args:
-        UID: ${UID}
-        GID: ${GID}
-    user: "${UID}:${GID}"
+        UID: ${UID}  # Prende l'UID dall'host
+        GID: ${GID}  # Prende il GID dall'host
+    user: "${UID}:${GID}"  # Imposta l'utente e il gruppo con UID e GID
     volumes:
       - ./:/var/www/html
     ports:
@@ -20,6 +19,8 @@ services:
       MYSQL_DATABASE: josh_db
     ports:
       - 3306:3306
+    volumes:
+      - mysql_data:/var/lib/mysql  # Add this line to persist data
 
   phpmyadmin:
     image: phpmyadmin:latest
@@ -28,3 +29,5 @@ services:
     environment:
       - PMA_ARBITRARY=1
 
+volumes:
+  mysql_data:  # Define the volume
