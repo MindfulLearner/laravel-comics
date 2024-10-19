@@ -1,0 +1,6 @@
+@extends('/views/welcome')
+
+
+
+
+

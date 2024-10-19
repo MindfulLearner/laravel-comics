@@ -13,8 +13,23 @@
         @vite('resources/js/app.js')
     </head>
     <body>
-        <div class="container">
-ciao
-        </div>
+
+<!-- Usiamo include per aggiungere i comoponenti suddivisi tramite componenti in realta piu sezionic -->
+ <!-- qui ci saranno navbar... -->
+@include('/sections/homeheader')
+
+@include('/sections/homejumbotron')
+
+@include('/sections/homecardlist')
+
+@include('/sections/homebluestripe')
+
+@include('/sections/homefooter')
+
+@include('/sections/homesottofooter')
+
+
+
+
     </body>
 </html>
