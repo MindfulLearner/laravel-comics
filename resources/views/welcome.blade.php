@@ -16,17 +16,17 @@
 
 <!-- Usiamo include per aggiungere i comoponenti suddivisi tramite componenti in realta piu sezionic -->
  <!-- qui ci saranno navbar... -->
-@include('/sections/homeheader')
+@include('/home/homeheader')
 
-@include('/sections/homejumbotron')
+@include('/home/homejumbotron')
 
-@include('/sections/homecardlist')
+@include('/home/homecardlist')
 
-@include('/sections/homebluestripe')
+@include('/home/homebluestripe')
 
-@include('/sections/homefooter')
+@include('/home/homefooter')
 
-@include('/sections/homesottofooter')
+@include('/home/homesottofooter')
 
 
 
