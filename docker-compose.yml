@@ -8,9 +8,11 @@ services:
         GID: ${GID}  # Prende il GID dall'host
     user: "${UID}:${GID}"  # Imposta l'utente e il gruppo con UID e GID
     volumes:
-      - ./:/var/www/html
+      - ./:/var/www/html:cached
     ports:
       - 9000:80
+    environment:
+      APACHE_DOCUMENT_ROOT: /var/www/html/public
 
   mysql_db:
     image: mysql:latest

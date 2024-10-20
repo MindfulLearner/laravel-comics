@@ -11,11 +11,13 @@ box-sizing: border-box;
     width: 1400px;
 }
 
+
 // header styling
 .header-bar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 100px;
 
     .img-sec {
         width: 20%;
@@ -39,11 +41,12 @@ box-sizing: border-box;
 }
 
 // navbar styling yielding
-ul {
+.ul-nav {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
+    justify-content: space-around;
 
     li {
         margin-right: 20px;
@@ -55,8 +58,127 @@ ul {
     }
 }
 
-
+// jumbotron swag container
 .jumbotron-container {
-background-image: url("/images/jumbotron.png");
+background-image: url("/images/jumbotron.jpg");
 height: 400px;
+}
+
+// cardlist card style
+.container {
+    min-height: 500px;
+    position: relative;
+    padding-bottom: 20px;
+    color: white;
+
+    &.bg-for-card-list {
+        background-color: rgb(28, 28, 28);
+    }
+
+    .current-series {
+        position: absolute;
+        top: -25px;
+        color: white;
+        text-align: center;
+        font-size: 20px;
+        height: 50px;
+        width: 250px;
+        background-color: rgb(2, 130, 249);
+    }
+
+    .card-container {
+        display: flex;
+        padding-top: 50px;
+        width: 100%;
+        flex-wrap: wrap;
+
+        .card-container-for {
+            width: calc((100% / 6) - 20px);
+            margin: 10px;
+
+            .card {
+                aspect-ratio: 1 / 1;
+            }
+
+            img {
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+
+    .load-more {
+        margin: 0 auto;
+        color: white;
+        text-align: center;
+        font-size: 20px;
+        height: 50px;
+        width: 250px;
+        background-color: rgb(2, 130, 249);
+    }
+}
+
+.bg-blue {
+    background-color: rgb(2, 130, 249);
+}
+
+.container-bluestripe {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.img-container {
+    height: 60px;
+    height: 40px;
+    display: flex;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: white;
+}
+
+
+
+// footer
+.bg-image {
+    background-image: url("images/footer-bg.jpg");
+}
+
+.container-footer {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    min-height: 400px;
+}
+
+.titolo {
+    color: white;
+    font-size: 25px;
+    margin-bottom: 20px;
+
+}
+
+.swag-ul {
+    color: grey;
+    padding: 0;
+    text-decoration-style: none;
+}
+
+ul>.swag-li {
+    margin-bottom: 10px;
+}
+
+.container-ul {
+    display: flex;
+    gap: 30px;
 }

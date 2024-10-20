@@ -14,22 +14,19 @@
     </head>
     <body>
 
-<!-- Usiamo include per aggiungere i comoponenti suddivisi tramite componenti in realta piu sezionic -->
+ <!-- Usiamo include per aggiungere i comoponenti suddivisi tramite componenti in realta piu sezionic -->
  <!-- qui ci saranno navbar... -->
-@include('/home/homeheader')
+@include('home/homeheader')
 
-@include('/home/homejumbotron')
+@include('home/homejumbotron')
 
-@include('/home/homecardlist')
+@include('home/homecardlist')
 
-@include('/home/homebluestripe')
+@include('home/homebluestripe')
 
-@include('/home/homefooter')
+@include('home/homefooter')
 
-@include('/home/homesottofooter')
-
-
-
+@include('home/homesottofooter')
 
     </body>
 </html>

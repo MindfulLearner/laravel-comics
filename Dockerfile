@@ -26,13 +26,19 @@ ARG GID=1000  # Predefinito
 RUN groupadd -g ${GID} learner && \
     useradd -m -u ${UID} -g learner learner
 
-# Assicurati che la cartella /var/www/html/data esista
-RUN mkdir -p /var/www/html/data && \
-    chown -R www-data:www-data /var/www/html/data && \
-    chmod -R 755 /var/www/html/data && \
+# Imposta la root del documento su /public
+ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
+
+# Modifica il file di configurazione di Apache per usare /public come DocumentRoot
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
+
+# Assicurati che la cartella /var/www/html/public esista e abbia i permessi giusti
+RUN mkdir -p /var/www/html/public && \
+    chown -R www-data:www-data /var/www/html/public && \
+    chmod -R 755 /var/www/html/public && \
     chown -R learner:learner /var/www/html && \
     chmod -R 755 /var/www/html && \
-    echo '<Directory /var/www/html/>\n\
+    echo '<Directory /var/www/html/public/>\n\
     Options Indexes FollowSymLinks\n\
     AllowOverride All\n\
     Require all granted\n\
